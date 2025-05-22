@@ -81,7 +81,7 @@ export class CrearFacturaComponent implements OnInit {
       const filaFormulario = this.listaProductosFormulario[index]; //Se toma el objeto del listado del formulario para asignarle los valores del producto de bd
       filaFormulario.precioUnitario = producto.precioUnitario;
       filaFormulario.cantidad = 0;
-      filaFormulario.imagen = producto.imagenProducto;
+      filaFormulario.imagen = producto.imagenBase64;
     }else{
       alert('Ocurrio un error buscando la informacion del producto seleccionado');
     }

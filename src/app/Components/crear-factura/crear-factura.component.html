@@ -45,7 +45,7 @@
                                 <input type="number" [(ngModel)]="filaProducto.cantidad" (input)="actualizarCantidad(i)" min="1">
                             </td>
                             <td>
-                                <img src={{filaProducto.imagen}} alt="">
+                                <img src={{filaProducto.imagen}} alt="" width="50" height="50">
                             </td>
                             <td>
                                 <p>{{filaProducto.total | currency : 'COP '}}</p>
