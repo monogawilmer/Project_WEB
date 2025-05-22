@@ -1,0 +1,92 @@
+<div class="crearFacturaMainContent">
+    <div class="contentContainer">
+        <div class="containerBtnNuevaFactura">
+            <p>Nueva Factura</p>
+            <button (click)="limpiarFormulario()">Nuevo</button>
+        </div>
+        <div class="formContainer">
+            <div class="ClienteFacturaContainer">
+                <div class="clienteContainer">
+                    <p>Cliente</p>
+                    <select [(ngModel)]="opcionSeleccionada">
+                        <option *ngFor="let cliente of listadoClientes" [value]="cliente.id">{{cliente.razonSocial}}</option>
+                    </select>
+                </div>  
+                <div class="numFacturaContainer">
+                    <p>Número de Factura</p>
+                    <input type="number" placeholder="" [(ngModel)]="numFacturaForm">
+                </div>
+            </div>
+            <div class="agregarProductoContianer">
+                <button (click)="agregarNuevoProducto()">AGREGAR NUEVO PRODUCTO</button>
+            </div>
+            <div class="tablaProductosContainer">
+                <table border="1" cellpadding="5" cellspacing="0" class="classTablaProductos">
+                    <thead>
+                      <tr>
+                        <th>Producto</th>
+                        <th>Precio Unitario</th>
+                        <th>Cantidad</th>
+                        <th>Imagen</th>
+                        <th>Totales</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let filaProducto of listaProductosFormulario; let i = index">
+                            <td>
+                                <select [(ngModel)]="filaProducto.idProducto" (change)="seleccionarProducto(i,filaProducto.idProducto)">
+                                    <option *ngFor="let producto of listadoProductos" [value]="producto.id">{{producto.nombreProducto}}</option>
+                                </select> 
+                            </td>
+                            <td>
+                                {{filaProducto.precioUnitario}}
+                            </td>
+                            <td>
+                                <input type="number" [(ngModel)]="filaProducto.cantidad" (input)="actualizarCantidad(i)" min="1">
+                            </td>
+                            <td>
+                                <img src={{filaProducto.imagen}} alt="">
+                            </td>
+                            <td>
+                                <p>{{filaProducto.total | currency : 'COP '}}</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tablaTotalesContainer" >
+                <table border="1" cellpadding="5" cellspacing="0" class="classTablaTotales">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <p>Sub Total</p>
+                            </td>
+                            <td>
+                                <p>{{subTotal | currency: 'COP '}}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Impuestos(19%)</p>
+                            </td>
+                            <td>
+                                <p>{{valorCalculadoImpuesto | currency: 'COP '}}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Total</p>
+                            </td>
+                            <td>
+                                <p>{{totalCalculado | currency: 'COP '}}</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="btnGuardarContainer">
+                <button (click)="guardarFactura()">GUARDAR</button>
+            </div>
+        </div>
+    </div>
+</div>

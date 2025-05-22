@@ -1,0 +1,53 @@
+.crearFacturaMainContent{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: auto;
+    padding: 60px 0px;
+}
+
+.contentContainer{
+    width: 50%;
+    padding: 20px;
+}
+
+.containerBtnNuevaFactura{
+    display: flex;
+    column-gap: 20px;
+}
+
+.formContainer{
+    margin-top: 10px;
+    background-color: pink;
+    padding: 15px;
+}
+
+.ClienteFacturaContainer{
+    display: flex;
+    width: 100%;
+    column-gap: 20px;
+}
+
+.tablaProductosContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.agregarProductoContianer{
+    margin: 14px 0px;
+}
+
+.classTablaProductos{
+    width: 100%;
+}
+.tablaTotalesContainer{
+    margin-top: 20px;
+    display: flex;
+    justify-content: end;
+}
+
+.classTablaTotales{
+    width: 30%;
+}
